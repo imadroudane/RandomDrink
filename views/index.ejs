@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Bogle&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund+Guides&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+US+Modern:wght@100..400&display=swap" rel="stylesheet">
+    <title>Random Drink</title>
+</head>
+<body>
+    <main>
+        <%if(locals.drinkImage && locals.drinkName && drinkAlcoholic && drinkCategory && ingredients && drinkInstructions){%>
+        <div class="drinkInfo">
+            <div class="name">
+                <h1 class="drinkName"><%=drinkName%></h1> <p class="isAlcoholic">(<%=drinkAlcoholic%>)</p>
+            </div>
+            <div class="category"><p class="drinkCategory"><%=drinkCategory%></p></div>
+            <hr>
+            <%for(let i = 0; i < ingredients.length; i++){%>
+            <div class="ingredients"><%=ingredients[i].measure%> <%=ingredients[i].ingredient%></div>
+            <%}%>
+            <hr>
+            <div class="instructions"><%=drinkInstructions%></div>
+        </div>
+        <div class="drinkImage">
+            <img src="<%=drinkImage%>" alt="Drink_Image">
+        </div>
+        <%}%>
+    </main>
+</body>
+</html>
